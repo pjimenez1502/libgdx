@@ -10,8 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        
-
+        classpath "com.badlogicgames.gdx:gdx-tools:1.9.9"
     }
 }
 
@@ -57,10 +56,24 @@ project(":core") {
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.kotcrab.vis:vis-ui:1.3.0"
         
     }
 }
 
 tasks.eclipse.doLast {
     delete ".project"
+}
+
+project.ext.texturePacker = [ "core/assets/", "core/assets/", "invaders" ]
+
+// Import the texture packer
+import com.badlogic.gdx.tools.texturepacker.TexturePacker
+
+// Add a new task that packs the textures for you
+task texturePacker << {
+    if (project.ext.has('texturePacker')) {
+        logger.info "Calling TexturePacker: "+texturePacker
+        TexturePacker.process(texturePacker[0], texturePacker[1], texturePacker[2])
+    }
 }
