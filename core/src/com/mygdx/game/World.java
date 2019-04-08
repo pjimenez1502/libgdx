@@ -22,12 +22,14 @@ public class World {
         spriteBatch.begin();
         player.render(spriteBatch);
 
-        checkCollisions(assets);
-
+        spriteBatch.end();
     }
 
     void update(float delta, Assets assets){
+
         player.update(delta, assets);
+
+        checkCollisions(assets);
     }
 
     private void checkCollisions(Assets assets) {

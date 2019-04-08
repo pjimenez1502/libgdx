@@ -17,7 +17,7 @@ public class Player {
     public Player(int initialPosition){
         position = new Vector2(initialPosition, 10);
 
-
+        stateTime = 0;
     }
 
     public void render(SpriteBatch batch){
@@ -33,7 +33,7 @@ public class Player {
 
     private void setFrame(Assets assets) {
 
-        frame = assets.player.getKeyFrame(0, true);
+        frame = assets.player.getKeyFrame(stateTime, true);
 
         //switch estados (idle, left-...) cambiando sprite
     }
