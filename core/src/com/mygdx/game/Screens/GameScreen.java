@@ -16,8 +16,8 @@ public class GameScreen extends GenericScreen {
     public OrthographicCamera camera;
     public Viewport viewport;
 
-    public int SCENE_WIDTH = 384;
-    public int SCENE_HEIGHT = 256;
+    public int SCENE_WIDTH = 480;
+    public int SCENE_HEIGHT = 270;
 
     World world;
 

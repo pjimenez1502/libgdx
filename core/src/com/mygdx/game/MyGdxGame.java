@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.mygdx.game.Screens.GameScreen;
+import com.mygdx.game.Screens.LoadingScreen;
 
 public class MyGdxGame extends Game {
 
@@ -14,7 +15,7 @@ public class MyGdxGame extends Game {
 		assets = new Assets();
 		assets.load();
 
-		setScreen(new GameScreen(this));
+		setScreen(new LoadingScreen(this));
 	}
 
 	@Override
