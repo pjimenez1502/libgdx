@@ -23,6 +23,8 @@ public class Player extends Sprite {
         IDLE_RIGHT
     }
 
+    //http://www.gameprogrammingpatterns.com/state.html
+
     public Player(int initialPosition){
         position = new Vector2(initialPosition, 10);
 
