@@ -2,8 +2,13 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.ControllerListener;
+import com.badlogic.gdx.controllers.Controllers;
 
 public class Controls {
+
+
 
     public static boolean isLeftPressed() {
         return Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A);
@@ -25,7 +30,14 @@ public class Controls {
 
     public static boolean isShootPressed() {
         return Gdx.input.isKeyPressed(Input.Keys.Q) || Gdx.input.isKeyPressed(Input.Keys.Q);
-        }
+    }
+
+
+
+
+
+
+
 
 
 }

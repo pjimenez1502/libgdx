@@ -6,13 +6,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Assets;
 import com.mygdx.game.Controls;
+import com.mygdx.game.Gamepad;
 
 public class Player extends Sprite {
 
     Vector2 position;
 
     float stateTime;
-    float speed = 4;
+    float speed = 2.5f;
 
     TextureRegion frame;
 
@@ -53,6 +54,7 @@ public class Player extends Sprite {
         if (Controls.isRightPressed()){
             moveRight();
         }
+
     }
 
     private void moveUp() {

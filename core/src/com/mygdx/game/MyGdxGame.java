@@ -16,6 +16,9 @@ public class MyGdxGame extends Game {
 		assets.load();
 
 		setScreen(new LoadingScreen(this));
+
+
+		Gamepad gamepad = new Gamepad();
 	}
 
 	@Override

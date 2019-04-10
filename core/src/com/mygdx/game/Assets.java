@@ -30,7 +30,7 @@ public class Assets  extends AssetManager {
 
     private void loadAnimations() {
 
-        player = new Animation<TextureRegion>(1f, atlas.findRegions("playerIdle"));
+        player = new Animation<TextureRegion>(1f, atlas.findRegions("playeridle"));
 
     }
 }
