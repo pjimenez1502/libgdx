@@ -17,12 +17,19 @@ public class Player extends Sprite {
 
     TextureRegion frame;
 
-    enum State{
-        IDLE_UP,
-        IDLE_DOWN,
-        IDLE_LEFT,
-        IDLE_RIGHT
+    enum DirectionState {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
     }
+
+    enum ActionState {
+        IDLE, ATTACK, RUN, SHOOT, SHIELD, DODGE
+    }
+
+    DirectionState directionState;
+    ActionState actionState;
 
     //http://www.gameprogrammingpatterns.com/state.html
 
@@ -30,6 +37,9 @@ public class Player extends Sprite {
         position = new Vector2(initialPosition, 10);
 
         stateTime = 0;
+
+        directionState = DirectionState.UP;
+        actionState = ActionState.IDLE;
     }
 
     public void render(SpriteBatch batch){
@@ -41,6 +51,8 @@ public class Player extends Sprite {
         stateTime += delta;
 
         setFrame(assets);
+
+        stateMachine();
 
         if (Controls.isDownPressed()){
             moveDown();
@@ -55,6 +67,81 @@ public class Player extends Sprite {
             moveRight();
         }
 
+    }
+
+    private void stateMachine() {
+        switch (directionState){
+            case UP:
+                switch (actionState){
+                    case RUN:
+
+                        break;
+                    case IDLE:
+                        break;
+                    case DODGE:
+                        break;
+                    case SHOOT:
+                        break;
+                    case ATTACK:
+                        break;
+                    case SHIELD:
+                        break;
+                }
+                break;
+            case DOWN:
+                switch (actionState){
+                    case RUN:
+
+                        break;
+                    case IDLE:
+                        break;
+                    case DODGE:
+                        break;
+                    case SHOOT:
+                        break;
+                    case ATTACK:
+                        break;
+                    case SHIELD:
+                        break;
+                }
+                break;
+            case LEFT:
+                switch (actionState){
+                    case RUN:
+
+                        break;
+                    case IDLE:
+                        break;
+                    case DODGE:
+                        break;
+                    case SHOOT:
+                        break;
+                    case ATTACK:
+                        break;
+                    case SHIELD:
+                        break;
+                }
+                break;
+            case RIGHT:
+                switch (actionState){
+                    case RUN:
+
+                        break;
+                    case IDLE:
+                        break;
+                    case DODGE:
+                        break;
+                    case SHOOT:
+                        break;
+                    case ATTACK:
+                        break;
+                    case SHIELD:
+                        break;
+                }
+                break;
+
+
+        }
     }
 
     private void moveUp() {
