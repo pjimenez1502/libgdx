@@ -43,6 +43,8 @@ public class GameScreen extends GenericScreen {
     public void render(float delta) {
         spriteBatch.setProjectionMatrix(camera.combined);
 
+
+
         world.render(delta, spriteBatch, assets);
 
     }

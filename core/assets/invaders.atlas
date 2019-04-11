@@ -1,19 +1,26 @@
 
 invaders.png
-size: 128,64
+size: 512,512
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+ground
+  rotate: false
+  xy: 2, 70
+  size: 480, 270
+  orig: 480, 270
+  offset: 0, 0
+  index: -1
 playeridle
   rotate: false
-  xy: 2, 2
+  xy: 2, 36
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 0
 playeridle
   rotate: false
-  xy: 36, 2
+  xy: 2, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

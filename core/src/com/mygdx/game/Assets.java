@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Assets  extends AssetManager {
 
     public TextureAtlas atlas;
-    public Animation<TextureRegion> player;
+    public Animation<TextureRegion> background, player;
 
 
     public void load(){
@@ -30,6 +30,7 @@ public class Assets  extends AssetManager {
 
     private void loadAnimations() {
 
+        background = new Animation<TextureRegion>(1f, atlas.findRegions("ground"));
         player = new Animation<TextureRegion>(1f, atlas.findRegions("playeridle"));
 
     }

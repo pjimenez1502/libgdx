@@ -20,6 +20,9 @@ public class World {
         update(delta, assets);
 
         spriteBatch.begin();
+
+        spriteBatch.draw(assets.background.getKeyFrame(0), 0, 0);
+
         player.render(spriteBatch);
 
         spriteBatch.end();
