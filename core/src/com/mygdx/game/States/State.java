@@ -7,14 +7,6 @@ public abstract class State {
 
     Player player;
 
-    enum DirectionState {
-        IDLE,
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
-
     public State(Player player){
         this.player = player;
     }

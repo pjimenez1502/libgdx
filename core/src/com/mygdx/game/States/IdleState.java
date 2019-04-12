@@ -12,6 +12,7 @@ public abstract class IdleState extends State {
     @Override
     public void input() {
         if (Controls.isUpPressed()){
+            System.out.println("UPPPPP");
             player.state = new UpState(player);
         }
         if (Controls.isDownPressed()){
@@ -21,6 +22,7 @@ public abstract class IdleState extends State {
             player.state = new LeftState(player);
         }
         if (Controls.isRightPressed()){
+            System.out.println("RIGHT");
             player.state = new RightState(player);
         }
 

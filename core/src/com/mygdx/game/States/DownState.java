@@ -11,12 +11,11 @@ public class DownState extends State {
 
     @Override
     public void input() {
+        player.move();
+
         if (!Controls.isDownPressed()){
             player.state = new IdleDownState(player);
         }
-//        if (Controls.isUpPressed()){
-//            player.state = new UpState(player);
-//        }
         if (Controls.isLeftPressed()){
             player.state = new LeftState(player);
         }
@@ -24,7 +23,7 @@ public class DownState extends State {
             player.state = new RightState(player);
         }
 
-        player.moveDown();
+
     }
 
     @Override

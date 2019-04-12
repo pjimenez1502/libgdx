@@ -1,12 +1,13 @@
 package com.mygdx.game.Objects;
 
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Assets;
 import com.mygdx.game.Controls;
-import com.mygdx.game.States.IdleState;
 import com.mygdx.game.States.IdleUpState;
 import com.mygdx.game.States.State;
 
@@ -14,12 +15,15 @@ public class Player extends Sprite {
 
     public State state;
 
-    Vector2 position;
+    private Vector2 position;
 
-    float stateTime;
-    float speed = 2.5f;
+    private float stateTime;
+    private float maxSpeed = 2.5f;
+    public Vector2 speed = new Vector2();
 
-    TextureRegion frame;
+    private TextureRegion frame;
+
+
 
     public enum DirectionState {
         IDLEUP,
@@ -41,6 +45,7 @@ public class Player extends Sprite {
     //http://www.gameprogrammingpatterns.com/state.html
 
     public Player(int initialPosition){
+
         position = new Vector2(initialPosition, 10);
 
         stateTime = 0;
@@ -62,115 +67,20 @@ public class Player extends Sprite {
 
         setFrame(assets);
 
-        stateMachine();
-
-//        if (Controls.isDownPressed()){
-//            moveDown();
-//        }
-//        if (Controls.isUpPressed()){
-//            moveUp();
-//        }
-//        if (Controls.isLeftPressed()){
-//            moveLeft();
-//        }
-//        if (Controls.isRightPressed()){
-//            moveRight();
-//        }
-
         state.input();
 
+
+
+
+
     }
 
-    private void stateMachine() {
-        /*
-        switch (directionState){
-            case UP:
-                switch (actionState){
-                    case RUN:
 
-                        break;
-                    case IDLE:
-                        break;
-                    case DODGE:
-                        break;
-                    case SHOOT:
-                        break;
-                    case ATTACK:
-                        break;
-                    case SHIELD:
-                        break;
-                }
-                break;
-            case DOWN:
-                switch (actionState){
-                    case RUN:
+    public void move(){
 
-                        break;
-                    case IDLE:
-                        break;
-                    case DODGE:
-                        break;
-                    case SHOOT:
-                        break;
-                    case ATTACK:
-                        break;
-                    case SHIELD:
-                        break;
-                }
-                break;
-            case LEFT:
-                switch (actionState){
-                    case RUN:
+        position.x += speed.x;
+        position.y += speed.y;
 
-                        break;
-                    case IDLE:
-                        break;
-                    case DODGE:
-                        break;
-                    case SHOOT:
-                        break;
-                    case ATTACK:
-                        break;
-                    case SHIELD:
-                        break;
-                }
-                break;
-            case RIGHT:
-                switch (actionState){
-                    case RUN:
-
-                        break;
-                    case IDLE:
-                        break;
-                    case DODGE:
-                        break;
-                    case SHOOT:
-                        break;
-                    case ATTACK:
-                        break;
-                    case SHIELD:
-                        break;
-                }
-                break;
-
-
-        }*/
-    }
-
-    public void moveUp() {
-        position.y+=speed;
-    }
-
-    public void moveDown() {
-        position.y-=speed;
-    }
-
-    public void moveRight() {
-        position.x+=speed;
-    }
-
-    public void moveLeft() {
-        position.x-=speed;
     }
 
     private void setFrame(Assets assets) {

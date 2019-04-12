@@ -11,20 +11,17 @@ public class LeftState extends State {
 
     @Override
     public void input() {
-        if (!Controls.isLeftPressed()){
+        player.move();
+
+        if (Controls.isLeftPressed()) {
+            if (Controls.isUpPressed()) {
+                //player.moveUp();
+            } else if (Controls.isDownPressed()) {
+                //player.moveDown();
+            }
+        } else {
             player.state = new IdleUpState(player);
         }
-        if (Controls.isUpPressed()){
-            player.state = new UpState(player);
-        }
-        if (Controls.isDownPressed()){
-            player.state = new DownState(player);
-        }
-//        if (Controls.isRightPressed()){
-//            player.state = new RightState(player);
-//        }
-
-        player.moveLeft();
     }
 
     @Override

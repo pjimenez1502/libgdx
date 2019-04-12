@@ -11,6 +11,8 @@ public class UpState extends State {
 
     @Override
     public void input() {
+        player.move();
+
         if (!Controls.isUpPressed()){
             player.state = new IdleUpState(player);
         }
@@ -24,7 +26,7 @@ public class UpState extends State {
             player.state = new RightState(player);
         }
 
-        player.moveUp();
+
     }
 
     @Override

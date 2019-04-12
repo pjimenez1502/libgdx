@@ -5,10 +5,21 @@ import com.badlogic.gdx.controllers.ControllerListener;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.Objects.Player;
+
+import java.util.ArrayList;
 
 public class Gamepad {
 
-    public Controller controller;
+    Player player;
+
+    Gamepad(Player player){
+        this.player = player;
+    }
+
+    private Array<Controller> controllerList = Controllers.getControllers();
+    public Controller controller = controllerList.first();
 
     public Gamepad(){
         Controllers.addListener(new ControllerListener() {
@@ -39,11 +50,12 @@ public class Gamepad {
 
                 switch (axisCode){
                     case 0:
-                        if (value < 0)
-
+                        player.speed.x *= value;
+                        break;
+                    case 1:
+                        player.speed.y *= value;
                         break;
                 }
-
 
                 return false;
             }
