@@ -6,9 +6,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Assets;
 import com.mygdx.game.Controls;
-import com.mygdx.game.Gamepad;
+import com.mygdx.game.States.IdleState;
+import com.mygdx.game.States.IdleUpState;
+import com.mygdx.game.States.State;
 
 public class Player extends Sprite {
+
+    public State state;
 
     Vector2 position;
 
@@ -17,7 +21,10 @@ public class Player extends Sprite {
 
     TextureRegion frame;
 
-    enum DirectionState {
+    public enum DirectionState {
+        IDLEUP,
+        IDLEDOWN,
+        //
         UP,
         DOWN,
         LEFT,
@@ -28,7 +35,7 @@ public class Player extends Sprite {
         IDLE, ATTACK, RUN, SHOOT, SHIELD, DODGE
     }
 
-    DirectionState directionState;
+    public DirectionState directionState;
     ActionState actionState;
 
     //http://www.gameprogrammingpatterns.com/state.html
@@ -38,8 +45,11 @@ public class Player extends Sprite {
 
         stateTime = 0;
 
-        directionState = DirectionState.UP;
-        actionState = ActionState.IDLE;
+        state = new IdleUpState(this);
+
+
+//        directionState = DirectionState.UP;
+//        actionState = ActionState.IDLE;
     }
 
     public void render(SpriteBatch batch){
@@ -54,22 +64,25 @@ public class Player extends Sprite {
 
         stateMachine();
 
-        if (Controls.isDownPressed()){
-            moveDown();
-        }
-        if (Controls.isUpPressed()){
-            moveUp();
-        }
-        if (Controls.isLeftPressed()){
-            moveLeft();
-        }
-        if (Controls.isRightPressed()){
-            moveRight();
-        }
+//        if (Controls.isDownPressed()){
+//            moveDown();
+//        }
+//        if (Controls.isUpPressed()){
+//            moveUp();
+//        }
+//        if (Controls.isLeftPressed()){
+//            moveLeft();
+//        }
+//        if (Controls.isRightPressed()){
+//            moveRight();
+//        }
+
+        state.input();
 
     }
 
     private void stateMachine() {
+        /*
         switch (directionState){
             case UP:
                 switch (actionState){
@@ -141,28 +154,48 @@ public class Player extends Sprite {
                 break;
 
 
-        }
+        }*/
     }
 
-    private void moveUp() {
+    public void moveUp() {
         position.y+=speed;
     }
 
-    private void moveDown() {
+    public void moveDown() {
         position.y-=speed;
     }
 
-    private void moveRight() {
+    public void moveRight() {
         position.x+=speed;
     }
 
-    private void moveLeft() {
+    public void moveLeft() {
         position.x-=speed;
     }
 
     private void setFrame(Assets assets) {
 
-        frame = assets.player.getKeyFrame(stateTime, true);
+        switch (directionState){
+            case IDLEUP:
+                frame = assets.playerIdleUp.getKeyFrame(stateTime, true);
+                break;
+            case IDLEDOWN:
+                frame = assets.playerIdleDown.getKeyFrame(stateTime, true);
+                break;
+            case UP:
+                frame = assets.playerUp.getKeyFrame(stateTime, true);
+                break;
+            case DOWN:
+                frame = assets.playerDown.getKeyFrame(stateTime, true);
+                break;
+            case LEFT:
+                frame = assets.playerLeft.getKeyFrame(stateTime, true);
+                break;
+            case RIGHT:
+                frame = assets.playerRight.getKeyFrame(stateTime, true);
+                break;
+        }
+
 
         //switch estados (idle, left...) cambiando sprite
     }

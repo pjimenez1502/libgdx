@@ -6,21 +6,63 @@ filter: Nearest,Nearest
 repeat: none
 ground
   rotate: false
-  xy: 2, 70
+  xy: 2, 138
   size: 480, 270
   orig: 480, 270
   offset: 0, 0
   index: -1
-playeridle
+playerDown
+  rotate: false
+  xy: 2, 104
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playerIdleDown
+  rotate: false
+  xy: 2, 70
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playerIdleUp
+  rotate: false
+  xy: 36, 104
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playerLeft
   rotate: false
   xy: 2, 36
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playerRight
+  rotate: false
+  xy: 36, 70
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playerUp
+  rotate: false
+  xy: 70, 104
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+playeridle
+  rotate: false
+  xy: 2, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 0
 playeridle
   rotate: false
-  xy: 2, 2
+  xy: 36, 36
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

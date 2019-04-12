@@ -34,8 +34,8 @@ public class Gamepad {
 
             @Override
             public boolean axisMoved(Controller controller, int axisCode, float value) {
-                System.out.println("Code: " + axisCode);
-                System.out.println("Value" + value);
+//                System.out.println("Code: " + axisCode);
+//                System.out.println("Value" + value);
 
                 switch (axisCode){
                     case 0:

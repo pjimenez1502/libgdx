@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Assets  extends AssetManager {
 
     public TextureAtlas atlas;
-    public Animation<TextureRegion> background, player;
+    public Animation<TextureRegion> background, playerIdleUp, playerUp, playerDown, playerLeft, playerRight, playerIdleDown;
 
 
     public void load(){
@@ -31,7 +31,14 @@ public class Assets  extends AssetManager {
     private void loadAnimations() {
 
         background = new Animation<TextureRegion>(1f, atlas.findRegions("ground"));
-        player = new Animation<TextureRegion>(1f, atlas.findRegions("playeridle"));
+        playerIdleUp = new Animation<TextureRegion>(1f, atlas.findRegions("playerIdleUp"));
+        playerIdleDown = new Animation<TextureRegion>(1f, atlas.findRegions("playerIdleDown"));
+        playerUp = new Animation<TextureRegion>(1f, atlas.findRegions("playerUp"));
+        playerDown = new Animation<TextureRegion>(1f, atlas.findRegions("playerDown"));
+        playerLeft = new Animation<TextureRegion>(1f, atlas.findRegions("playerLeft"));
+        playerRight = new Animation<TextureRegion>(1f, atlas.findRegions("playerRight"));
+
+
 
     }
 }
