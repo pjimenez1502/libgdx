@@ -8,20 +8,28 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.Objects.Player;
 
-import java.util.ArrayList;
 
 public class Gamepad {
 
     Player player;
 
-    Gamepad(Player player){
+    private Array<Controller> controllerList = Controllers.getControllers();
+    public Controller controller;
+
+
+
+    public Gamepad(Player player){
         this.player = player;
+
+        if (!controllerList.isEmpty()) {
+            controller = controllerList.first();
+        }
     }
 
-    private Array<Controller> controllerList = Controllers.getControllers();
-    public Controller controller = controllerList.first();
 
-    public Gamepad(){
+
+    public void setGamepadListener(){
+
         Controllers.addListener(new ControllerListener() {
             @Override
             public void connected(Controller controller) {
@@ -50,10 +58,10 @@ public class Gamepad {
 
                 switch (axisCode){
                     case 0:
-                        player.speed.x *= value;
+                        player.speed.x = player.maxSpeed * value;
                         break;
                     case 1:
-                        player.speed.y *= value;
+                        player.speed.y = player.maxSpeed * value;
                         break;
                 }
 

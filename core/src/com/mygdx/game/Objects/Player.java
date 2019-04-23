@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Assets;
 import com.mygdx.game.Controls;
+import com.mygdx.game.Gamepad;
 import com.mygdx.game.States.IdleUpState;
 import com.mygdx.game.States.State;
 
@@ -18,10 +19,12 @@ public class Player extends Sprite {
     private Vector2 position;
 
     private float stateTime;
-    private float maxSpeed = 2.5f;
+    public float maxSpeed = 2.5f;
     public Vector2 speed = new Vector2();
 
     private TextureRegion frame;
+
+    Gamepad gamepad = new Gamepad(this);
 
 
 
